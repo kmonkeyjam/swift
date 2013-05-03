@@ -93,15 +93,15 @@ public class ThriftType
         return new ThriftType(enumMetadata);
     }
 
-    private final ThriftProtocolType protocolType;
-    private final Type javaType;
-    private final ThriftType keyType;
-    private final ThriftType valueType;
-    private final ThriftStructMetadata<?> structMetadata;
-    private final ThriftEnumMetadata<?> enumMetadata;
-    private final ThriftType uncoercedType;
+    protected final ThriftProtocolType protocolType;
+    protected final Type javaType;
+    protected final ThriftType keyType;
+    protected final ThriftType valueType;
+    protected final ThriftStructMetadata<?> structMetadata;
+    protected final ThriftEnumMetadata<?> enumMetadata;
+    protected final ThriftType uncoercedType;
 
-    private ThriftType(ThriftProtocolType protocolType, Type javaType)
+    protected ThriftType(ThriftProtocolType protocolType, Type javaType)
     {
         Preconditions.checkNotNull(protocolType, "protocolType is null");
         Preconditions.checkNotNull(javaType, "javaType is null");
@@ -115,7 +115,7 @@ public class ThriftType
         uncoercedType = null;
     }
 
-    private ThriftType(ThriftProtocolType protocolType, Type javaType, ThriftType keyType, ThriftType valueType)
+    protected ThriftType(ThriftProtocolType protocolType, Type javaType, ThriftType keyType, ThriftType valueType)
     {
         Preconditions.checkNotNull(protocolType, "protocolType is null");
         Preconditions.checkNotNull(javaType, "javaType is null");
@@ -130,7 +130,7 @@ public class ThriftType
         this.uncoercedType = null;
     }
 
-    private ThriftType(ThriftStructMetadata<?> structMetadata)
+    protected ThriftType(ThriftStructMetadata<?> structMetadata)
     {
         Preconditions.checkNotNull(structMetadata, "structMetadata is null");
 
@@ -143,7 +143,7 @@ public class ThriftType
         this.uncoercedType = null;
     }
 
-    private ThriftType(ThriftEnumMetadata<?> enumMetadata)
+    protected ThriftType(ThriftEnumMetadata<?> enumMetadata)
     {
         Preconditions.checkNotNull(enumMetadata, "enumMetadata is null");
 
